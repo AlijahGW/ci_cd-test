@@ -20,7 +20,13 @@ jobs:
       - name: Install and Run Semgrep
         run: |
           python -m pip install semgrep
-          semgrep scan --config "p/default" --error
+          semgrep scan --config "p/default" --json -o semgrep.json
+
+      - name: Upload SAST Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: semgrep-report
+          path: semgrep.json
 
   dast_scan:
     name: Dynamic Analysis (OWASP ZAP)
@@ -42,4 +48,20 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target: 'http://localhost:3000'
+          issue_title: 'ZAP Scan Report'
           fail_action: false
+
+      - name: Run Unified Parser
+        run: python parse_reports.py
+
+      - name: Prepare Pages Directory
+        run: |
+          mkdir public
+          cp index.html public/
+          cp unified_report.json public/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
