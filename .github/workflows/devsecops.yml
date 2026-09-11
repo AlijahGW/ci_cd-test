@@ -51,8 +51,15 @@ jobs:
           issue_title: 'ZAP Scan Report'
           fail_action: false
 
+      -name: Download SAST Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: semgrep-report
+        
       - name: Run Unified Parser
-        run: python parse_reports.py
+        run: |
+        mv report_json.json zap.json  
+        python parse_reports.py
 
       - name: Prepare Pages Directory
         run: |
