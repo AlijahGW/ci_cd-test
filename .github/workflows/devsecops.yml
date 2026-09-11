@@ -5,6 +5,10 @@ on:
     branches: [ "master", "main" ]
   workflow_dispatch: 
 
+permissions:
+  issues: write
+  contents: read
+
 jobs:
   sast_scan:
     name: Static Analysis (Semgrep)
