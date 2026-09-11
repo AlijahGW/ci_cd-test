@@ -1,6 +1,602 @@
 {
-    "total_vulnerabilities": 0,
-    "sast_count": 0,
-    "dast_count": 0,
-    "findings": []
+    "total_vulnerabilities": 85,
+    "sast_count": 75,
+    "dast_count": 11,
+    "findings": [
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/ci.yml:188",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.gha-curl-pipe-shell.gha-curl-pipe-shell",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/ci.yml:359",
+            "description": "A `run:` step pipes the output of `curl` or `wget` directly into a shell interpreter. This is the \"curl | bash\" install pattern \u2014 if the remote server is compromised or the URL is hijacked, an attacker can execute arbitrary code in your CI runner. Consider downloading the file first, verifying its checksum or signature, and then executing it."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/codeql-analysis.yml:23",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/codeql-analysis.yml:34",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/codeql-analysis.yml:36",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:18",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:26",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:38",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:47",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:55",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/devsecops.yml:71",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/image_actions.yml:30",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/image_actions.yml:33",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+            "severity": "WARNING",
+            "location": "File: .github/workflows/image_actions.yml:42",
+            "description": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/update-challenges-ebook.yml:22",
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/update-challenges-www-legacy.yml:27",
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/update-challenges-www-legacy.yml:36",
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/update-challenges-www.yml:27",
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "yaml.github-actions.security.run-shell-injection.run-shell-injection",
+            "severity": "ERROR",
+            "location": "File: .github/workflows/update-challenges-www.yml:36",
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "package_managers.npm.npm-missing-minimum-release-age.npm-missing-minimum-release-age",
+            "severity": "MEDIUM",
+            "location": "File: .npmrc:1",
+            "description": "This .npmrc does not set a minimum release age or sets it too low. Newly published packages can be malicious or unstable. Add `min-release-age = 7` to wait 7 days before resolving newly published package versions. Added in: v11.10 Reference: https://github.blog/changelog/2026-02-18-npm-bulk-trusted-publishing-config-and-script-security-now-generally-available/"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: data/static/codefixes/dbSchemaChallenge_1.ts:5",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: data/static/codefixes/dbSchemaChallenge_3.ts:11",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_1.tf:17",
+            "description": "Resources in the AWS subnet are assigned a public IP address. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application. Set `map_public_ip_on_launch` to false so that resources are not publicly-accessible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_1.tf:121",
+            "description": "ELB has no logging. Missing logs can cause missing important event information."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_1.tf:159",
+            "description": "Detected an AWS load balancer with an insecure TLS version. TLS versions less than 1.2 are considered insecure because they can be broken. To fix this, set your `ssl_policy` to `\"ELBSecurityPolicy-TLS13-1-2-Res-2021-06\"`, or include a default action to redirect to HTTPS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_2.tf:17",
+            "description": "Resources in the AWS subnet are assigned a public IP address. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application. Set `map_public_ip_on_launch` to false so that resources are not publicly-accessible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_2.tf:121",
+            "description": "ELB has no logging. Missing logs can cause missing important event information."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_2.tf:159",
+            "description": "Detected an AWS load balancer with an insecure TLS version. TLS versions less than 1.2 are considered insecure because they can be broken. To fix this, set your `ssl_policy` to `\"ELBSecurityPolicy-TLS13-1-2-Res-2021-06\"`, or include a default action to redirect to HTTPS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_3_correct.tf:17",
+            "description": "Resources in the AWS subnet are assigned a public IP address. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application. Set `map_public_ip_on_launch` to false so that resources are not publicly-accessible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_3_correct.tf:121",
+            "description": "ELB has no logging. Missing logs can cause missing important event information."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version",
+            "severity": "WARNING",
+            "location": "File: data/static/codefixes/iacLeakedKeyChallenge_3_correct.tf:159",
+            "description": "Detected an AWS load balancer with an insecure TLS version. TLS versions less than 1.2 are considered insecure because they can be broken. To fix this, set your `ssl_policy` to `\"ELBSecurityPolicy-TLS13-1-2-Res-2021-06\"`, or include a default action to redirect to HTTPS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.audit.detect-replaceall-sanitization.detect-replaceall-sanitization",
+            "severity": "INFO",
+            "location": "File: data/static/codefixes/restfulXssChallenge_2.ts:46",
+            "description": "Detected a call to `replaceAll()` in an attempt to HTML escape the string `tableData[i].description`. Manually sanitizing input through a manually built list can be circumvented in many situations, and it's better to use a well known sanitization library such as `sanitize-html` or `DOMPurify`."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: data/static/codefixes/unionSqlInjectionChallenge_1.ts:6",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: data/static/codefixes/unionSqlInjectionChallenge_3.ts:10",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "generic.secrets.security.detected-generic-secret.detected-generic-secret",
+            "severity": "ERROR",
+            "location": "File: data/static/users.yml:151",
+            "description": "Generic Secret detected"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "package_managers.npm.npm-missing-minimum-release-age.npm-missing-minimum-release-age",
+            "severity": "MEDIUM",
+            "location": "File: frontend/.npmrc:1",
+            "description": "This .npmrc does not set a minimum release age or sets it too low. Newly published packages can be malicious or unstable. Add `min-release-age = 7` to wait 7 days before resolving newly published package versions. Added in: v11.10 Reference: https://github.blog/changelog/2026-02-18-npm-bulk-trusted-publishing-config-and-script-security-now-generally-available/"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "generic.secrets.security.detected-jwt-token.detected-jwt-token",
+            "severity": "ERROR",
+            "location": "File: frontend/src/app/app.guard.spec.ts:46",
+            "description": "JWT token detected"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "generic.secrets.security.detected-jwt-token.detected-jwt-token",
+            "severity": "ERROR",
+            "location": "File: frontend/src/app/last-login-ip/last-login-ip.component.spec.ts:72",
+            "description": "JWT token detected"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "generic.secrets.security.detected-jwt-token.detected-jwt-token",
+            "severity": "ERROR",
+            "location": "File: frontend/src/app/last-login-ip/last-login-ip.component.spec.ts:78",
+            "description": "JWT token detected"
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
+            "severity": "WARNING",
+            "location": "File: frontend/src/hacking-instructor/helpers/helpers.ts:49",
+            "description": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "html.security.audit.missing-integrity.missing-integrity",
+            "severity": "WARNING",
+            "location": "File: index.html:6",
+            "description": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-cloudwatch-log-group-unencrypted.aws-cloudwatch-log-group-unencrypted",
+            "severity": "WARNING",
+            "location": "File: infrastructure/terraform/main.tf:126",
+            "description": "By default, AWS CloudWatch Log Group is encrypted using AWS-managed keys. However, for added security, it's recommended to configure your own AWS KMS encryption key to protect your log group in CloudWatch. You can either create a new aws_kms_key resource or use the ARN of an existing key in your AWS account to do so."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address",
+            "severity": "WARNING",
+            "location": "File: infrastructure/terraform/networking.tf:18",
+            "description": "Resources in the AWS subnet are assigned a public IP address. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application. Set `map_public_ip_on_launch` to false so that resources are not publicly-accessible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled",
+            "severity": "WARNING",
+            "location": "File: infrastructure/terraform/networking.tf:122",
+            "description": "ELB has no logging. Missing logs can cause missing important event information."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version",
+            "severity": "WARNING",
+            "location": "File: infrastructure/terraform/networking.tf:160",
+            "description": "Detected an AWS load balancer with an insecure TLS version. TLS versions less than 1.2 are considered insecure because they can be broken. To fix this, set your `ssl_policy` to `\"ELBSecurityPolicy-TLS13-1-2-Res-2021-06\"`, or include a default action to redirect to HTTPS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+            "severity": "WARNING",
+            "location": "File: lib/antiCheat.ts:196",
+            "description": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
+            "severity": "WARNING",
+            "location": "File: lib/codingChallenges.ts:76",
+            "description": "RegExp() called with a `challengeKey` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
+            "severity": "WARNING",
+            "location": "File: lib/codingChallenges.ts:78",
+            "description": "RegExp() called with a `challengeKey` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.hardcoded-hmac-key.hardcoded-hmac-key",
+            "severity": "WARNING",
+            "location": "File: lib/insecurity.ts:42",
+            "description": "Detected a hardcoded hmac key. Avoid hardcoding secrets and consider using an alternate option such as reading the secret from a config file or using an environment variable."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.jsonwebtoken.security.jwt-hardcode.hardcoded-jwt-secret",
+            "severity": "WARNING",
+            "location": "File: lib/insecurity.ts:54",
+            "description": "A hard-coded credential was detected. It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module)."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.hardcoded-hmac-key.hardcoded-hmac-key",
+            "severity": "WARNING",
+            "location": "File: lib/insecurity.ts:150",
+            "description": "Detected a hardcoded hmac key. Avoid hardcoding secrets and consider using an alternate option such as reading the secret from a config file or using an environment variable."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.browser.security.eval-detected.eval-detected",
+            "severity": "WARNING",
+            "location": "File: routes/captcha.ts:22",
+            "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.remote-property-injection.remote-property-injection",
+            "severity": "ERROR",
+            "location": "File: routes/currentUser.ts:31",
+            "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype. Use literal values for object properties."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-res-sendfile.express-res-sendfile",
+            "severity": "WARNING",
+            "location": "File: routes/fileServer.ts:32",
+            "description": "The application processes user-input, this is passed to res.sendFile which can allow an attacker to arbitrarily read files on the system through path traversal. It is recommended to perform input validation in addition to canonicalizing the path. This allows you to validate the path against the intended directory it should be accessing."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-res-sendfile.express-res-sendfile",
+            "severity": "WARNING",
+            "location": "File: routes/keyServer.ts:14",
+            "description": "The application processes user-input, this is passed to res.sendFile which can allow an attacker to arbitrarily read files on the system through path traversal. It is recommended to perform input validation in addition to canonicalizing the path. This allows you to validate the path against the intended directory it should be accessing."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-res-sendfile.express-res-sendfile",
+            "severity": "WARNING",
+            "location": "File: routes/logfileServer.ts:14",
+            "description": "The application processes user-input, this is passed to res.sendFile which can allow an attacker to arbitrarily read files on the system through path traversal. It is recommended to perform input validation in addition to canonicalizing the path. This allows you to validate the path against the intended directory it should be accessing."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: routes/login.ts:34",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-res-sendfile.express-res-sendfile",
+            "severity": "WARNING",
+            "location": "File: routes/quarantineServer.ts:14",
+            "description": "The application processes user-input, this is passed to res.sendFile which can allow an attacker to arbitrarily read files on the system through path traversal. It is recommended to perform input validation in addition to canonicalizing the path. This allows you to validate the path against the intended directory it should be accessing."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-open-redirect.express-open-redirect",
+            "severity": "WARNING",
+            "location": "File: routes/redirect.ts:18",
+            "description": "The application redirects to a URL specified by user-supplied input `query` that is not validated. This could redirect users to malicious locations. Consider using an allow-list approach to validate URLs, or warn users they are being redirected to a third-party website."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+            "severity": "ERROR",
+            "location": "File: routes/search.ts:23",
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.browser.security.eval-detected.eval-detected",
+            "severity": "WARNING",
+            "location": "File: routes/userProfile.ts:65",
+            "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.code-string-concat.code-string-concat",
+            "severity": "ERROR",
+            "location": "File: routes/userProfile.ts:65",
+            "description": "Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable this can lead to execution of arbitrary system commands in the context of your application process. Avoid `eval` whenever possible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.unknown-value-with-script-tag.unknown-value-with-script-tag",
+            "severity": "WARNING",
+            "location": "File: routes/videoHandler.ts:71",
+            "description": "Cannot determine what 'subs' is and it is used with a '<script>' tag. This could be susceptible to cross-site scripting (XSS). Ensure 'subs' is not externally controlled, or sanitize this data."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.lang.security.audit.unsafe-formatstring.unsafe-formatstring",
+            "severity": "INFO",
+            "location": "File: server.ts:157",
+            "description": "Detected string concatenation with a non-literal variable in a util.format / console.log function. If an attacker injects a format specifier in the string, it will forge the log message. Try to use constant values for the format string."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing",
+            "severity": "WARNING",
+            "location": "File: server.ts:268",
+            "description": "Directory listing/indexing is enabled, which may lead to disclosure of sensitive directories and files. It is recommended to disable directory listing unless it is a public resource. If you need directory listing, ensure that sensitive files are inaccessible when querying the resource."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing",
+            "severity": "WARNING",
+            "location": "File: server.ts:288",
+            "description": "Directory listing/indexing is enabled, which may lead to disclosure of sensitive directories and files. It is recommended to disable directory listing unless it is a public resource. If you need directory listing, ensure that sensitive files are inaccessible when querying the resource."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing",
+            "severity": "WARNING",
+            "location": "File: server.ts:292",
+            "description": "Directory listing/indexing is enabled, which may lead to disclosure of sensitive directories and files. It is recommended to disable directory listing unless it is a public resource. If you need directory listing, ensure that sensitive files are inaccessible when querying the resource."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing",
+            "severity": "WARNING",
+            "location": "File: server.ts:296",
+            "description": "Directory listing/indexing is enabled, which may lead to disclosure of sensitive directories and files. It is recommended to disable directory listing unless it is a public resource. If you need directory listing, ensure that sensitive files are inaccessible when querying the resource."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.express-check-directory-listing.express-check-directory-listing",
+            "severity": "WARNING",
+            "location": "File: server.ts:300",
+            "description": "Directory listing/indexing is enabled, which may lead to disclosure of sensitive directories and files. It is recommended to disable directory listing unless it is a public resource. If you need directory listing, ensure that sensitive files are inaccessible when querying the resource."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-cloudwatch-log-group-unencrypted.aws-cloudwatch-log-group-unencrypted",
+            "severity": "WARNING",
+            "location": "File: terraform/main.tf:126",
+            "description": "By default, AWS CloudWatch Log Group is encrypted using AWS-managed keys. However, for added security, it's recommended to configure your own AWS KMS encryption key to protect your log group in CloudWatch. You can either create a new aws_kms_key resource or use the ARN of an existing key in your AWS account to do so."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address",
+            "severity": "WARNING",
+            "location": "File: terraform/networking.tf:18",
+            "description": "Resources in the AWS subnet are assigned a public IP address. Resources should not be exposed on the public internet, but should have access limited to consumers required for the function of your application. Set `map_public_ip_on_launch` to false so that resources are not publicly-accessible."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled",
+            "severity": "WARNING",
+            "location": "File: terraform/networking.tf:122",
+            "description": "ELB has no logging. Missing logs can cause missing important event information."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version",
+            "severity": "WARNING",
+            "location": "File: terraform/networking.tf:160",
+            "description": "Detected an AWS load balancer with an insecure TLS version. TLS versions less than 1.2 are considered insecure because they can be broken. To fix this, set your `ssl_policy` to `\"ELBSecurityPolicy-TLS13-1-2-Res-2021-06\"`, or include a default action to redirect to HTTPS."
+        },
+        {
+            "source": "SAST (Semgrep)",
+            "vulnerability": "javascript.express.security.audit.xss.pug.explicit-unescape.template-explicit-unescape",
+            "severity": "WARNING",
+            "location": "File: views/promotionVideo.pug:75",
+            "description": "Detected an explicit unescape in a Pug template, using either '!=' or '!{...}'. If external data can reach these locations, your application is exposed to a cross-site scripting (XSS) vulnerability. If you must do this, ensure no external data can reach this location."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Content Security Policy (CSP) Header Not Set",
+            "severity": "MEDIUM",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Cross-Domain Misconfiguration",
+            "severity": "MEDIUM",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Cross-Origin-Embedder-Policy Header Missing or Invalid",
+            "severity": "LOW",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS)."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Cross-Origin-Opener-Policy Header Missing or Invalid",
+            "severity": "LOW",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Dangerous JS Functions",
+            "severity": "LOW",
+            "location": "Endpoint: http://localhost:3000/main.js",
+            "description": "A dangerous JS function seems to be in use that would leave the site vulnerable."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Deprecated Feature Policy Header Set",
+            "severity": "LOW",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "The header has now been renamed to Permissions-Policy."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Timestamp Disclosure - Unix",
+            "severity": "LOW",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "A timestamp was disclosed by the application/web server. - Unix"
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Modern Web Application",
+            "severity": "INFORMATIONAL",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Non-Storable Content",
+            "severity": "INFORMATIONAL",
+            "location": "Endpoint: http://localhost:3000/ftp/encrypt.pyc",
+            "description": "The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Storable and Cacheable Content",
+            "severity": "INFORMATIONAL",
+            "location": "Endpoint: http://localhost:3000/ftp",
+            "description": "The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Storable but Non-Cacheable Content",
+            "severity": "INFORMATIONAL",
+            "location": "Endpoint: http://localhost:3000",
+            "description": "The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users."
+        }
+    ]
 }
