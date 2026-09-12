@@ -6,10 +6,18 @@ def load_semgrep(filepath):
         with open(filepath, 'r') as f:
             data = json.load(f)
             for item in data.get('results', []):
+                # Clean up the long rule ID into a readable title
+                raw_id = item.get('check_id', 'Unknown')
+                readable_title = raw_id.split('.')[-1].replace('-', ' ').title()
+
+                # Normalize Semgrep severities to standard classifications
+                raw_severity = item.get('extra', {}).get('severity', 'UNKNOWN').upper()
+                severity = 'HIGH' if raw_severity == 'ERROR' else 'MEDIUM' if raw_severity == 'WARNING' else 'LOW' if raw_severity == 'INFO' else raw_severity
+
                 vulns.append({
                     'source': 'SAST (Semgrep)',
-                    'vulnerability': item.get('check_id', 'Unknown'),
-                    'severity': item.get('extra', {}).get('severity', 'UNKNOWN'),
+                    'vulnerability': readable_title,
+                    'severity': severity,
                     'location': f"File: {item.get('path', 'Unknown')}:{item.get('start', {}).get('line', '0')}",
                     'description': item.get('extra', {}).get('message', '')
                 })
@@ -24,13 +32,13 @@ def load_zap(filepath):
             data = json.load(f)
             for site in data.get('site', []):
                 for alert in site.get('alerts', []):
-                    severity = alert.get('riskdesc', 'UNKNOWN').split(' ')[0]
+                    severity = alert.get('riskdesc', 'UNKNOWN').split(' ')[0].upper()
                     uri = alert.get('instances', [{}])[0].get('uri', 'Unknown')
                     
                     vulns.append({
                         'source': 'DAST (ZAP)',
                         'vulnerability': alert.get('name', 'Unknown'),
-                        'severity': severity.upper(),
+                        'severity': severity,
                         'location': f"Endpoint: {uri}",
                         'description': alert.get('desc', '').replace('<p>', '').replace('</p>', '').strip()
                     })
