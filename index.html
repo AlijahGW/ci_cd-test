@@ -7,17 +7,27 @@
     <style>
         body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
         .vuln-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        .critical { border-left: 5px solid #cc0000; }
         .high { border-left: 5px solid #ff4444; }
         .medium { border-left: 5px solid #ffbb33; }
+        .low { border-left: 5px solid #00C851; }
+        .charts-container { display: flex; gap: 40px; margin-bottom: 30px; justify-content: center; }
+        .chart-wrapper { width: 300px; }
     </style>
 </head>
 <body>
     <h1>Security Vulnerability Report</h1>
-    <div style="width: 300px; margin-bottom: 30px;">
-        <canvas id="vulnChart"></canvas>
+    
+    <div class="charts-container">
+        <div class="chart-wrapper">
+            <canvas id="sourceChart"></canvas>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="severityChart"></canvas>
+        </div>
     </div>
     
-    <input type="text" id="searchBar" placeholder="Filter by source or severity..." style="width: 100%; padding: 10px; margin-bottom: 20px;">
+    <input type="text" id="searchBar" placeholder="Filter by source or severity..." style="width: 100%; padding: 10px; margin-bottom: 20px; box-sizing: border-box;">
     <div id="vulnList"></div>
 
     <script>
@@ -28,14 +38,32 @@
             .then(data => {
                 allVulns = data.findings;
                 
-                // Render Chart
-                new Chart(document.getElementById('vulnChart'), {
+                // Source Doughnut Chart
+                new Chart(document.getElementById('sourceChart'), {
                     type: 'doughnut',
                     data: {
                         labels: ['SAST', 'DAST'],
                         datasets: [{
                             data: [data.sast_count, data.dast_count],
                             backgroundColor: ['#36A2EB', '#FF6384']
+                        }]
+                    }
+                });
+
+                // Tally Severities
+                let counts = { CRITICAL: 0, HIGH: 0, MEDIUM: 0, LOW: 0 };
+                allVulns.forEach(v => {
+                    if (counts[v.severity] !== undefined) counts[v.severity]++;
+                });
+
+                // Severity Pie Chart
+                new Chart(document.getElementById('severityChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Low', 'Medium', 'High', 'Critical'],
+                        datasets: [{
+                            data: [counts.LOW, counts.MEDIUM, counts.HIGH, counts.CRITICAL],
+                            backgroundColor: ['#00C851', '#ffbb33', '#ff4444', '#cc0000']
                         }]
                     }
                 });
