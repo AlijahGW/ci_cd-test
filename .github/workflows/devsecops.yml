@@ -61,6 +61,13 @@ jobs:
           mv report_json.json zap.json  
           python parse_reports.py
 
+      - name: Enrich Report with AI
+        env: 
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        run: |
+          pip install requests
+          python ai_enrichment.py
+
       - name: Prepare Pages Directory
         run: |
           mkdir public

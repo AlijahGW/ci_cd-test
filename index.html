@@ -126,6 +126,11 @@
                     <p><strong>Source:</strong> ${v.source}</p>
                     <p><strong>Location:</strong> ${v.location}</p>
                     <p>${v.description}</p>
+                    ${v.ai_analysis ? `
+                    <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-left: 4px solid #8a2be2;">
+                        <strong>🤖 AI Analysis & Remediation:</strong>
+                        <p style="white-space: pre-wrap; margin-bottom: 0;">${v.ai_analysis}</p>
+                    </div>` : ''}
                 </div>
             `).join('');
         }
