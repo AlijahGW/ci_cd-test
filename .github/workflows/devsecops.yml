@@ -6,7 +6,6 @@ on:
   workflow_dispatch: 
 
 permissions:
-  issues: write
   contents: write
 
 jobs:
@@ -61,11 +60,17 @@ jobs:
           mv report_json.json zap.json  
           python parse_reports.py
 
-      - name: Enrich Report with AI
-        env: 
-          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+      - name: Install and Start Ollama
         run: |
-          pip install requests
+          curl -fsSL https://ollama.com/install.sh -o /tmp/ollama-install.sh
+          bash /tmp/ollama-install.sh
+          ollama serve &
+          sleep 5
+          ollama pull llama3.2:1b
+
+      - name: Enrich Report with AI
+        run: |
+          python -m pip install requests
           python ai_enrichment.py
 
       - name: Prepare Pages Directory
