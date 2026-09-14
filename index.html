@@ -65,6 +65,26 @@
                             data: [counts.LOW, counts.MEDIUM, counts.HIGH, counts.CRITICAL],
                             backgroundColor: ['#00C851', '#ffbb33', '#ff4444', '#cc0000']
                         }]
+                    },
+                    options: {
+                        onClick: (event, elements, chart) => {
+                            if (elements.length > 0) {
+                                // Extract the label of the clicked slice
+                                const clickedIndex = elements[0].index;
+                                const selectedSeverity = chart.data.labels[clickedIndex];
+                                
+                                // Auto-fill the search bar to show the active filter
+                                document.getElementById('searchBar').value = selectedSeverity;
+                                
+                                // Filter and render the list
+                                const filtered = allVulns.filter(v => v.severity.toLowerCase() === selectedSeverity.toLowerCase());
+                                renderList(filtered);
+                            }
+                        },
+                        // Change cursor to pointer on hover
+                        onHover: (event, chartElement) => {
+                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                        }
                     }
                 });
 
@@ -83,6 +103,7 @@
             `).join('');
         }
 
+        // Standard search bar listener for manual typing
         document.getElementById('searchBar').addEventListener('keyup', (e) => {
             const term = e.target.value.toLowerCase();
             const filtered = allVulns.filter(v => 
