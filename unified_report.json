@@ -1,7 +1,7 @@
 {
-    "total_vulnerabilities": 70,
+    "total_vulnerabilities": 71,
     "sast_count": 61,
-    "dast_count": 10,
+    "dast_count": 11,
     "findings": [
         {
             "source": "SAST (Semgrep)",
@@ -478,6 +478,13 @@
             "severity": "INFORMATIONAL",
             "location": "Endpoint: http://localhost:3000",
             "description": "The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one."
+        },
+        {
+            "source": "DAST (ZAP)",
+            "vulnerability": "Non-Storable Content",
+            "severity": "INFORMATIONAL",
+            "location": "Endpoint: http://localhost:3000/ftp/encrypt.pyc",
+            "description": "The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance."
         },
         {
             "source": "DAST (ZAP)",
