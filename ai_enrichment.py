@@ -5,7 +5,7 @@ API_URL = "http://localhost:11434/api/generate"
 MODEL = "llama3.2:1b"
 
 def get_ai_analysis(vuln_name, description):
-    prompt = f"Act as a DevSecOps engineer. Briefly explain how an attacker might exploit this vulnerability, followed by exactly how to remediate it. Keep the response under 150 words. Vulnerability: {vuln_name}. Description: {description}"
+    prompt = f"Act as a DevSecOps engineer. Briefly explain how an attacker might exploit this vulnerability. Do not provide an actual exploit just an overview for understanding, followed by exactly how to remediate it. Vulnerability: {vuln_name}. Description: {description}"
     
     payload = {
         "model": MODEL,
