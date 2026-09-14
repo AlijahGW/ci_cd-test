@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>DevSecOps Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
         .vuln-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
@@ -13,6 +15,22 @@
         .low { border-left: 5px solid #00C851; }
         .charts-container { display: flex; gap: 40px; margin-bottom: 30px; justify-content: center; }
         .chart-wrapper { width: 300px; }
+        .ai-content pre {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        }
+        .ai-content code {
+            background-color: #e9ecef;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .ai-content pre code {
+            background-color: transparent; 
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -129,7 +147,9 @@
                     ${v.ai_analysis ? `
                     <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-left: 4px solid #8a2be2;">
                         <strong>🤖 AI Analysis & Remediation:</strong>
-                        <p style="white-space: pre-wrap; margin-bottom: 0;">${v.ai_analysis}</p>
+                        <div class="ai-content" style="margin-top: 10px;">
+                            ${marked.parse(v.ai_analysis)}
+                        </div>
                     </div>` : ''}
                 </div>
             `).join('');
