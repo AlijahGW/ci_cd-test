@@ -32,64 +32,91 @@
 
     <script>
         let allVulns = [];
+        let sourceChart;
+        let severityChart;
+
+        // Global state to track active filters
+        let activeSourceFilter = "";
+        let activeSeverityFilter = "";
+        let activeTextFilter = "";
 
         fetch('unified_report.json')
             .then(response => response.json())
             .then(data => {
                 allVulns = data.findings;
                 
-                // Source Doughnut Chart
-                new Chart(document.getElementById('sourceChart'), {
+                // Initialize Source Chart
+                sourceChart = new Chart(document.getElementById('sourceChart'), {
                     type: 'doughnut',
                     data: {
                         labels: ['SAST', 'DAST'],
-                        datasets: [{
-                            data: [data.sast_count, data.dast_count],
-                            backgroundColor: ['#36A2EB', '#FF6384']
-                        }]
-                    }
-                });
-
-                // Tally Severities
-                let counts = { CRITICAL: 0, HIGH: 0, MEDIUM: 0, LOW: 0 };
-                allVulns.forEach(v => {
-                    if (counts[v.severity] !== undefined) counts[v.severity]++;
-                });
-
-                // Severity Pie Chart
-                new Chart(document.getElementById('severityChart'), {
-                    type: 'pie',
-                    data: {
-                        labels: ['Low', 'Medium', 'High', 'Critical'],
-                        datasets: [{
-                            data: [counts.LOW, counts.MEDIUM, counts.HIGH, counts.CRITICAL],
-                            backgroundColor: ['#00C851', '#ffbb33', '#ff4444', '#cc0000']
-                        }]
+                        datasets: [{ data: [0, 0], backgroundColor: ['#36A2EB', '#FF6384'] }]
                     },
                     options: {
                         onClick: (event, elements, chart) => {
                             if (elements.length > 0) {
-                                // Extract the label of the clicked slice
-                                const clickedIndex = elements[0].index;
-                                const selectedSeverity = chart.data.labels[clickedIndex];
-                                
-                                // Auto-fill the search bar to show the active filter
-                                document.getElementById('searchBar').value = selectedSeverity;
-                                
-                                // Filter and render the list
-                                const filtered = allVulns.filter(v => v.severity.toLowerCase() === selectedSeverity.toLowerCase());
-                                renderList(filtered);
+                                const clicked = chart.data.labels[elements[0].index];
+                                // Toggle filter on or off
+                                activeSourceFilter = activeSourceFilter === clicked ? "" : clicked;
+                                updateDashboard();
                             }
                         },
-                        // Change cursor to pointer on hover
-                        onHover: (event, chartElement) => {
-                            event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
-                        }
+                        onHover: (e, el) => e.native.target.style.cursor = el[0] ? 'pointer' : 'default'
                     }
                 });
 
-                renderList(allVulns);
+                // Initialize Severity Chart
+                severityChart = new Chart(document.getElementById('severityChart'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Low', 'Medium', 'High', 'Critical'],
+                        datasets: [{ data: [0, 0, 0, 0], backgroundColor: ['#00C851', '#ffbb33', '#ff4444', '#cc0000'] }]
+                    },
+                    options: {
+                        onClick: (event, elements, chart) => {
+                            if (elements.length > 0) {
+                                const clicked = chart.data.labels[elements[0].index].toUpperCase();
+                                // Toggle filter on or off
+                                activeSeverityFilter = activeSeverityFilter === clicked ? "" : clicked;
+                                updateDashboard();
+                            }
+                        },
+                        onHover: (e, el) => e.native.target.style.cursor = el[0] ? 'pointer' : 'default'
+                    }
+                });
+
+                updateDashboard(); // Initial render
             });
+
+        function updateDashboard() {
+            // 1. Filter the vulnerability list based on all active states
+            const filtered = allVulns.filter(v => {
+                const matchText = activeTextFilter === "" || 
+                    v.vulnerability.toLowerCase().includes(activeTextFilter) || 
+                    v.source.toLowerCase().includes(activeTextFilter) ||
+                    v.severity.toLowerCase().includes(activeTextFilter);
+                
+                const matchSource = activeSourceFilter === "" || v.source.includes(activeSourceFilter);
+                const matchSeverity = activeSeverityFilter === "" || v.severity === activeSeverityFilter;
+
+                return matchText && matchSource && matchSeverity;
+            });
+
+            renderList(filtered);
+
+            // 2. Dynamically update the Source Chart proportions
+            sourceChart.data.datasets[0].data = [
+                filtered.filter(v => v.source.includes('SAST')).length,
+                filtered.filter(v => v.source.includes('DAST')).length
+            ];
+            sourceChart.update();
+
+            // 3. Dynamically update the Severity Chart proportions
+            let counts = { CRITICAL: 0, HIGH: 0, MEDIUM: 0, LOW: 0 };
+            filtered.forEach(v => { if (counts[v.severity] !== undefined) counts[v.severity]++; });
+            severityChart.data.datasets[0].data = [counts.LOW, counts.MEDIUM, counts.HIGH, counts.CRITICAL];
+            severityChart.update();
+        }
 
         function renderList(vulns) {
             const container = document.getElementById('vulnList');
@@ -103,15 +130,10 @@
             `).join('');
         }
 
-        // Standard search bar listener for manual typing
+        // Search bar updates text filter independently of chart clicks
         document.getElementById('searchBar').addEventListener('keyup', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = allVulns.filter(v => 
-                v.vulnerability.toLowerCase().includes(term) || 
-                v.source.toLowerCase().includes(term) ||
-                v.severity.toLowerCase().includes(term)
-            );
-            renderList(filtered);
+            activeTextFilter = e.target.value.toLowerCase();
+            updateDashboard();
         });
     </script>
 </body>
