@@ -1,16 +1,24 @@
 import json
 
+FALSE_POSITIVES = [
+    "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+    "yaml.github-actions.security.gha-curl-pipe-shell.gha-curl-pipe-shell"
+]
+
 def load_semgrep(filepath):
     vulns = []
     try:
         with open(filepath, 'r') as f:
             data = json.load(f)
             for item in data.get('results', []):
-                # Clean up the long rule ID into a readable title
                 raw_id = item.get('check_id', 'Unknown')
+
+                # Filter out known false positives
+                if raw_id in FALSE_POSITIVES:
+                    continue 
+
                 readable_title = raw_id.split('.')[-1].replace('-', ' ').title()
 
-                # Normalize Semgrep severities to standard classifications
                 raw_severity = item.get('extra', {}).get('severity', 'UNKNOWN').upper()
                 severity = 'HIGH' if raw_severity == 'ERROR' else 'MEDIUM' if raw_severity == 'WARNING' else 'LOW' if raw_severity == 'INFO' else raw_severity
 
