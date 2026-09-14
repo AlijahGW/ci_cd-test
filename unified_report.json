@@ -8,35 +8,40 @@
             "vulnerability": "Run Shell Injection",
             "severity": "HIGH",
             "location": "File: .github/workflows/update-challenges-ebook.yml:22",
-            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Run Shell Injection",
             "severity": "HIGH",
             "location": "File: .github/workflows/update-challenges-www-legacy.yml:27",
-            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Run Shell Injection",
             "severity": "HIGH",
             "location": "File: .github/workflows/update-challenges-www-legacy.yml:36",
-            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Run Shell Injection",
             "severity": "HIGH",
             "location": "File: .github/workflows/update-challenges-www.yml:27",
-            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Run Shell Injection",
             "severity": "HIGH",
             "location": "File: .github/workflows/update-challenges-www.yml:36",
-            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\"."
+            "description": "Using variable interpolation `${{...}}` with `github` context data in a `run:` step could allow an attacker to inject their own code into the runner. This would allow them to steal secrets and code. `github` context data can have arbitrary user input and should be treated as untrusted. Instead, use an intermediate environment variable with `env:` to store the data and use the environment variable in the `run:` script. Be sure to use double-quotes the environment variable, like this: \"$ENVVAR\".",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -50,14 +55,16 @@
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: data/static/codefixes/dbSchemaChallenge_1.ts:5",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: data/static/codefixes/dbSchemaChallenge_3.ts:11",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -134,21 +141,24 @@
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: data/static/codefixes/unionSqlInjectionChallenge_1.ts:6",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: data/static/codefixes/unionSqlInjectionChallenge_3.ts:10",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Detected Generic Secret",
             "severity": "HIGH",
             "location": "File: data/static/users.yml:151",
-            "description": "Generic Secret detected"
+            "description": "Generic Secret detected",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -162,21 +172,24 @@
             "vulnerability": "Detected Jwt Token",
             "severity": "HIGH",
             "location": "File: frontend/src/app/app.guard.spec.ts:46",
-            "description": "JWT token detected"
+            "description": "JWT token detected",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Detected Jwt Token",
             "severity": "HIGH",
             "location": "File: frontend/src/app/last-login-ip/last-login-ip.component.spec.ts:72",
-            "description": "JWT token detected"
+            "description": "JWT token detected",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
             "vulnerability": "Detected Jwt Token",
             "severity": "HIGH",
             "location": "File: frontend/src/app/last-login-ip/last-login-ip.component.spec.ts:78",
-            "description": "JWT token detected"
+            "description": "JWT token detected",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -274,7 +287,8 @@
             "vulnerability": "Remote Property Injection",
             "severity": "HIGH",
             "location": "File: routes/currentUser.ts:31",
-            "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype. Use literal values for object properties."
+            "description": "Bracket object notation with user input is present, this might allow an attacker to access all properties of the object and even it's prototype. Use literal values for object properties.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -302,7 +316,8 @@
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: routes/login.ts:34",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -323,7 +338,8 @@
             "vulnerability": "Express Sequelize Injection",
             "severity": "HIGH",
             "location": "File: routes/search.ts:23",
-            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements."
+            "description": "Detected a sequelize statement that is tainted by user-input. This could lead to SQL injection if the variable is user-controlled and is not properly sanitized. In order to prevent SQL injection, it is recommended to use parameterized queries or prepared statements.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -337,7 +353,8 @@
             "vulnerability": "Code String Concat",
             "severity": "HIGH",
             "location": "File: routes/userProfile.ts:65",
-            "description": "Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable this can lead to execution of arbitrary system commands in the context of your application process. Avoid `eval` whenever possible."
+            "description": "Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable this can lead to execution of arbitrary system commands in the context of your application process. Avoid `eval` whenever possible.",
+            "ai_analysis": "AI analysis unavailable."
         },
         {
             "source": "SAST (Semgrep)",
@@ -483,7 +500,7 @@
             "source": "DAST (ZAP)",
             "vulnerability": "Non-Storable Content",
             "severity": "INFORMATIONAL",
-            "location": "Endpoint: http://localhost:3000/ftp/encrypt.pyc",
+            "location": "Endpoint: http://localhost:3000/ftp/coupons_2013.md.bak",
             "description": "The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance."
         },
         {
